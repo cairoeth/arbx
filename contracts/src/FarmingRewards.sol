@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.20;
 
-import {IERC20} from "openzeppelin/token/ERC20/IERC20.sol";
-import {SafeERC20} from "openzeppelin/token/ERC20/utils/SafeERC20.sol";
-import {ISigsVerifier} from "./interfaces/ISigsVerifier.sol";
-import {PbFarming} from "./libraries/PbFarming.sol";
-import {Pauser} from "./safeguard/Pauser.sol";
+import {IERC20} from 'openzeppelin/token/ERC20/IERC20.sol';
+import {SafeERC20} from 'openzeppelin/token/ERC20/utils/SafeERC20.sol';
+import {ISigsVerifier} from './interfaces/ISigsVerifier.sol';
+import {PbFarming} from './libraries/PbFarming.sol';
+import {Pauser} from './safeguard/Pauser.sol';
 
 /// @title FarmingRewards
 /// @author cairoeth
@@ -53,7 +53,7 @@ contract FarmingRewards is Pauser {
         address[] calldata _signers,
         uint256[] calldata _powers
     ) external whenNotPaused {
-        bytes32 domain = keccak256(abi.encodePacked(block.chainid, address(this), "FarmingRewards"));
+        bytes32 domain = keccak256(abi.encodePacked(block.chainid, address(this), 'FarmingRewards'));
         sigsVerifier.verifySigs(abi.encodePacked(domain, _rewardsRequest), _sigs, _signers, _powers);
         PbFarming.FarmingRewards memory rewards = PbFarming.decFarmingRewards(_rewardsRequest);
         bool hasNewReward;
@@ -68,7 +68,7 @@ contract FarmingRewards is Pauser {
                 emit FarmingRewardClaimed(rewards.recipient, token, newReward);
             }
         }
-        require(hasNewReward, "No new reward");
+        require(hasNewReward, 'No new reward');
     }
 
     /// @notice Contribute reward tokens to the reward pool
