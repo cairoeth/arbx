@@ -3,3 +3,4 @@ ds-test/=lib/forge-std/lib/ds-test/src/
 openzeppelin/=lib/openzeppelin-contracts/contracts/
 chainlink-ccip/=node_modules/@chainlink/contracts-ccip/src/v0.8/
 chainlink/=node_modules/@chainlink/contracts/src/v0.8/
+axelar/=lib/axelar-gmp-sdk-solidity/contracts/
