@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.20;
 
-import {IRouterClient} from "@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IRouterClient.sol";
-import {OwnerIsCreator} from "@chainlink/contracts-ccip/src/v0.8/shared/access/OwnerIsCreator.sol";
-import {Client} from "@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.sol";
-import {CCIPReceiver} from "@chainlink/contracts-ccip/src/v0.8/ccip/applications/CCIPReceiver.sol";
-import {IERC20} from "@chainlink/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.0/token/ERC20/IERC20.sol";
-import {LinkTokenInterface} from "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol";
+import {IERC20} from "openzeppelin/token/ERC20/IERC20.sol";
+import {IRouterClient} from "chainlink-ccip/ccip/interfaces/IRouterClient.sol";
+import {OwnerIsCreator} from "chainlink-ccip/shared/access/OwnerIsCreator.sol";
+import {Client} from "chainlink-ccip/ccip/libraries/Client.sol";
+import {CCIPReceiver} from "chainlink-ccip/ccip/applications/CCIPReceiver.sol";
+import {LinkTokenInterface} from "chainlink/interfaces/LinkTokenInterface.sol";
 
 /// @title Pool
 /// @author cairoeth

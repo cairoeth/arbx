@@ -1,0 +1,19 @@
+{
+  "name": "arbx-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for ArbX",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chainlink/contracts": "^0.6.1",
+    "@chainlink/contracts-ccip": "^0.7.6"
+  }
+}
