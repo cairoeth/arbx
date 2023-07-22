@@ -3,7 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useAccount, useNetwork } from 'wagmi'
 
-const statuses = {
+interface Map {
+  [key: string]: string | undefined
+}
+
+const statuses: Map = {
   Profit: 'text-green-700 bg-green-50 ring-green-600/20',
   InProgress: 'text-gray-600 bg-gray-50 ring-gray-500/10',
   Loss: 'text-red-700 bg-red-50 ring-red-600/10',
@@ -131,7 +135,7 @@ export function Trades() {
             <div className="inline-flex mr-4">
               <h2 className="card-title">
                 <BoltIcon className="w-6 h-6" />
-                Latest trades
+                Latest Trades
               </h2>
             </div>
           </div>
@@ -167,7 +171,7 @@ export function Trades() {
                         <div className="text-sm leading-6 text-gray-900">
                           <div className="isolate flex -space-x-2 overflow-hidden mt-1">
                             {trade.chains.map((chain) => (
-                              <div className="avatar mask mask-squircle w-6 h-6 rounded-full">
+                              <div key={chain} className="avatar mask mask-squircle w-6 h-6 rounded-full">
                                 {/* TODO: Improve below to not use double plus sign */}
                                 <Image width={600} height={600} src={"https://icons.llamao.fi/icons/chains/rsz_" + chain + '.jpg'} alt={"Image of " + chain} />
                               </div>
@@ -187,7 +191,7 @@ export function Trades() {
                         <div className="text-sm leading-6 text-gray-900">
                           <div className="isolate flex -space-x-2 overflow-hidden mt-1">
                             {trade.tokens.map((token) => (
-                              <div className="avatar mask mask-squircle w-6 h-6 rounded-full">
+                              <div key={token} className="avatar mask mask-squircle w-6 h-6 rounded-full">
                                 <Image width={600} height={600} src={"https://icons.llamao.fi/icons/liquidations/" + token + '.png'} alt={"Icon of " + token} />
                               </div>
                             ))}
@@ -243,6 +247,7 @@ export function Trades() {
                             href={trade.href}
                             className="text-sm font-medium leading-6 text-indigo-600 hover:text-indigo-500"
                             target="_blank"
+                            rel="noreferrer"
                           >
                             View<span className="hidden sm:inline"> transaction</span>
                           </a>

@@ -37,7 +37,7 @@ const tokens = [
   }
 ]
 
-const columns = ['Token', 'Chain', 'Your Liquidity', 'Total Liquidity', 'Volume 24h', 'APY']
+const columns = ['Token', 'Chain', 'Your Liquidity', 'Total Liquidity', 'Volume 24h', 'APY', '']
 
 const Row: React.FC<{ token: any }> = ({ token }) => {
   // Controls whether child rows are displayed as well as the rotated state of the collapse icon
@@ -68,8 +68,8 @@ const Row: React.FC<{ token: any }> = ({ token }) => {
         <td className="py-5 pr-6 sm:table-cell">
           <div className="text-sm leading-6 text-gray-900">
             <div className="isolate flex -space-x-2 overflow-hidden mt-1">
-              {token.chains.map((chain) => (
-                <div className="avatar mask mask-squircle w-6 h-6 rounded-full">
+              {token.chains.map((chain: any) => (
+                <div key={chain.name} className="avatar mask mask-squircle w-6 h-6 rounded-full">
                   <Image width={600} height={600} src={"https://icons.llamao.fi/icons/chains/rsz_" + chain.name + '.jpg'} alt={"Icon of " + chain.name} />
                 </div>
               ))}
@@ -120,12 +120,8 @@ const Row: React.FC<{ token: any }> = ({ token }) => {
         </td>
         {/* Icon */}
         <td className="py-5 pr-6 sm:table-cell">
-          <div className="flex gap-x-6">
-            <div className="flex-auto">
-              <div className="flex items-start gap-x-3">
-                {hidden ? <ChevronRightIcon className="w-6 h-6" /> : <ChevronDownIcon className="w-6 h-6" />}
-              </div>
-            </div>
+          <div className="flex gap-x-3 justify-center">
+            {hidden ? <ChevronRightIcon className="w-6 h-6" /> : <ChevronDownIcon className="w-6 h-6" />}
           </div>
         </td>
       </tr>
@@ -135,10 +131,19 @@ const Row: React.FC<{ token: any }> = ({ token }) => {
           <></>
           :
           <>
-            {token.chains.map((chain) => (
+            {token.chains.map((chain: any) => (
               <tr key={chain.name}>
                 {/* Empty Space */}
-                <td></td>
+                <td className="py-5 pr-6 sm:table-cell">
+                  <div className="flex">
+                    <div className="avatar mask mask-squircle w-6 h-6 rounded-full">
+
+                    </div>
+                    <span className="text-gray-900 pl-1"></span>
+                  </div>
+                  <div className="mt-1 text-xs leading-5 text-gray-500">
+                  </div>
+                </td>
                 {/* Chain */}
                 <td className="py-5 pr-6 sm:table-cell">
                   <div className="flex">
@@ -191,19 +196,15 @@ const Row: React.FC<{ token: any }> = ({ token }) => {
                   </div>
                 </td>
                 {/* Buttons */}
-                <td className="py-5 pr-6 sm:table-cell">
-                  <div className="flex gap-x-6">
-                    <div className="flex-auto">
-                      <div className="flex items-start gap-x-3">
-                        <label className="btn btn-circle btn-sm btn-secondary btn-outline ml-4 align-middle">
-                          <PlusIcon className="w-6 h-6" />
-                        </label>
+                <td className="py-5 pr-6 sm:table-cell text-center align-middle items-center content-center place-content-center justify-center place-self-center">
+                  <div className="flex gap-x-3 text-center align-middle items-center content-center place-content-center justify-center place-self-center">
+                    <label className="btn btn-circle btn-sm btn-secondary btn-outline align-middle place-content-center justify-center place-self-center">
+                      <PlusIcon className="w-6 h-6" />
+                    </label>
 
-                        <label className="btn btn-circle btn-sm btn-secondary btn-outline ml-4 align-middle">
-                          <MinusIcon className="w-6 h-6" />
-                        </label>
-                      </div>
-                    </div>
+                    <label className="btn btn-circle btn-sm btn-secondary btn-outline align-middle">
+                      <MinusIcon className="w-6 h-6" />
+                    </label>
                   </div>
                 </td>
               </tr>
@@ -278,7 +279,7 @@ export function Liquidity() {
 
   return (
     <>
-      <div className='w-full grid-cols-3 gap-4 overflow-y-hidden overflow-x-scroll px-10 pb-4 xl:grid xl:overflow-x-auto xl:px-4 svelte-1n6ue57'>
+      <div className='mb-10 mt-6 w-full grid-cols-3 gap-4 xl:grid'>
         <div className="col-span-1">
           <div className="h-fullgrid grid-cols-2 gap-1 md:grid-cols-1 w-full md:gap-4">
             <div className="card bg-base-100 shadow-xl">
@@ -331,18 +332,27 @@ export function Liquidity() {
           <div className="overflow-x-auto max-h-min">
             <div className="mt-6 overflow-hidden border-t border-gray-100">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-                <table className="table w-full text-left">
+                <table className="table min-w-full text-left">
+                  <colgroup>
+                    <col className="" />
+                    <col className="w-72" />
+                    <col className="" />
+                    <col className="" />
+                    <col className="" />
+                    <col className="" />
+                    <col className="w-28" />
+                  </colgroup>
                   <thead>
                     <tr>
                       {columns.map((column) =>
-                        <th>{column}</th>
+                        <th scope="col" key={column}>{column}</th>
                       )}
-                      <th></th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
                     {tokens.map((token) => (
-                      <Row token={token} />
+                      <Row key={token.name} token={token} />
                     ))}
                   </tbody>
                 </table>

@@ -298,7 +298,7 @@ export function Portfolio() {
       <div className="card-body">
         <h2 className="card-title">
           <ClipboardDocumentCheckIcon className="w-6 h-6" />
-          Portfolio
+          Your Portfolio
         </h2>
         <div className="overflow-x-auto max-h-min pb-8">
           <div className="grid grid-cols-4 gap-4">
