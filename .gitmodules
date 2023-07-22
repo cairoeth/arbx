@@ -7,3 +7,6 @@
 [submodule "contracts/lib/axelar-gmp-sdk-solidity"]
 	path = contracts/lib/axelar-gmp-sdk-solidity
 	url = https://github.com/axelarnetwork/axelar-gmp-sdk-solidity
+[submodule "contracts/lib/hyperlane-monorepo"]
+	path = contracts/lib/hyperlane-monorepo
+	url = https://github.com/hyperlane-xyz/hyperlane-monorepo

@@ -8,7 +8,7 @@ import {Client} from "chainlink-ccip/ccip/libraries/Client.sol";
 import {CCIPReceiver} from "chainlink-ccip/ccip/applications/CCIPReceiver.sol";
 import {LinkTokenInterface} from "chainlink/interfaces/LinkTokenInterface.sol";
 
-/// @title Pool
+/// @title ChainlinkMessenger
 /// @author cairoeth
 /// @notice Messenger contract for sending/receiving string data across chains via the Chalink CCIP.
 contract ChainlinkMessenger is CCIPReceiver, OwnerIsCreator {
