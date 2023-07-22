@@ -1,12 +1,7 @@
-import { BoltIcon, PlusIcon, MinusIcon } from "@heroicons/react/24/outline"
+import { BoltIcon } from "@heroicons/react/24/outline"
 import Image from 'next/image'
-import { ColumnRestaked } from "components/dashboard/column"
 import Link from 'next/link'
-import { useContractRead, useContractReads, useAccount, erc20ABI, useNetwork } from 'wagmi'
-import { contracts } from "components/helpers/contracts"
-import { ethers } from "ethers";
-import { Fragment } from 'react'
-import { ArrowDownCircleIcon, ArrowPathIcon, ArrowUpCircleIcon } from '@heroicons/react/20/solid'
+import { useAccount, useNetwork } from 'wagmi'
 
 const statuses = {
   Profit: 'text-green-700 bg-green-50 ring-green-600/20',
@@ -220,8 +215,6 @@ export function Trades() {
                             <div className="mt-1 text-xs leading-5 text-gray-500">{trade.raw} {trade.tokens[0].toUpperCase()}</div>
                           </div>
                         </div>
-                        <div className="absolute bottom-0 right-full h-px w-screen bg-gray-100" />
-                        <div className="absolute bottom-0 left-0 h-px w-screen bg-gray-100" />
                       </td>
                       {/* Arbitrageur */}
                       <td className="py-5 pr-6 sm:table-cell">
@@ -261,59 +254,6 @@ export function Trades() {
               </table>
             </div>
           </div>
-
-
-          {/* {modules.length > 0 ?
-            <table className="table w-full text-center">
-              <tbody>
-                {modules.map((module: any, index: number) => (
-                  <tr key={index}>
-                    <td className='text-left'>
-                      <Link href={'/module/' + module.address}>
-                        <div className="flex items-center space-x-3">
-                          <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12 rounded-full">
-                              <Image width={600} height={600} src={module.image} alt={"Image of module " + module.name} />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="text-lg font-bold">{module.name}</div>
-                            <div className="text-base text-left text-gray-500">{chain?.network}</div>
-                          </div>
-                        </div>
-                      </Link>
-                    </td>
-                    <ColumnRestaked first="Restaked amount" second={module.restakedAmount + ' ' + module.symbol} third={'$' + (parseFloat(module.restakedAmount) * 1.0)} slug={module.address} />
-                    <ColumnRestaked first="Underyling token" second={module.underlying} third={module.underlying_symbol} slug={module.address} />
-                    <td>
-                      <div className="flex-none">
-                        <Link className="btn btn-sm btn-primary btn-outline btn-circle align-middle" href={'/module/' + module.address}>
-                          <PlusIcon className="h-6 w-6" />
-                        </Link>
-                        <Link className="btn btn-sm btn-primary btn-outline btn-circle ml-4 align-middle" href={'/module/' + module.address}>
-                          <MinusIcon className="h-6 w-6" />
-                        </Link>
-                        <Link className="btn btn-sm btn-secondary btn-outline ml-4 align-middle" href={'/module/' + module.address}>
-                          Claim
-                        </Link>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            :
-            <div className="flex w-full items-center justify-between space-x-6 p-6">
-              <div className="flex-1 truncate">
-                <div className="flex space-x-3 place-content-center">
-                  <div className="text-lg">Not restaked in any modules.</div>
-                  <Link className="btn btn-sm btn-secondary btn-outline ml-4 align-middle" href='/modules'>
-                    Restake now
-                  </Link>
-                </div>
-              </div>
-            </div>
-          } */}
         </div>
       </div>
     </div>
