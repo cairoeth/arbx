@@ -7,6 +7,10 @@ import {PbBridge} from "./libraries/PbBridge.sol";
 import {IWETH} from "./interfaces/IWETH.sol";
 import {Pool} from "./Pool.sol";
 
+import {AxelarMessenger} from "./messengers/Axelar.sol";
+import {ChainlinkMessenger} from "./messengers/Chainlink.sol";
+import {HyperlaneMessenger} from "./messengers/Hyperlane.sol";
+
 /// @title Beacon
 /// @author cairoeth
 /// @notice Liquidity-pool based beacon for cross-chain trades.
