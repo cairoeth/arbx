@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { useContractRead, useContractReads, useNetwork } from 'wagmi'
 import { contracts } from 'components/helpers/contracts'
 import { useState, useEffect } from "react";
+import { AddLiquidityModal } from 'components/liquidity/modals/addLiquidity'
+import { RemoveLiquidityModal } from 'components/liquidity/modals/removeLiquidity'
 
 type Props = {
   data: any
@@ -39,7 +41,7 @@ const tokens = [
 
 const columns = ['Token', 'Chain', 'Your Liquidity', 'Total Liquidity', 'Volume 24h', 'APY', '']
 
-const Row: React.FC<{ token: any }> = ({ token }) => {
+const Row: React.FC<{ token: any, setToken: any, setChain: any, setImage: any }> = ({ token, setToken, setChain, setImage }) => {
   // Controls whether child rows are displayed as well as the rotated state of the collapse icon
   const [hidden, setHidden] = useState(true);
 
@@ -198,11 +200,19 @@ const Row: React.FC<{ token: any }> = ({ token }) => {
                 {/* Buttons */}
                 <td className="py-5 pr-6 sm:table-cell text-center align-middle items-center content-center place-content-center justify-center place-self-center">
                   <div className="flex gap-x-3 text-center align-middle items-center content-center place-content-center justify-center place-self-center">
-                    <label className="btn btn-circle btn-sm btn-secondary btn-outline align-middle place-content-center justify-center place-self-center">
+                    <label onClick={(e) => {
+                      setToken(token.name);
+                      setChain(chain.name);
+                      setImage(token.image);
+                    }} htmlFor="add-liquidity-modal" className="btn btn-circle btn-sm btn-secondary btn-outline align-middle place-content-center justify-center place-self-center">
                       <PlusIcon className="w-6 h-6" />
                     </label>
 
-                    <label className="btn btn-circle btn-sm btn-secondary btn-outline align-middle">
+                    <label onClick={(e) => {
+                      setToken(token.name);
+                      setChain(chain.name);
+                      setImage(token.image);
+                    }} htmlFor="remove-liquidity-modal" className="btn btn-circle btn-sm btn-secondary btn-outline align-middle">
                       <MinusIcon className="w-6 h-6" />
                     </label>
                   </div>
@@ -221,6 +231,9 @@ export function Liquidity() {
   const chunkSize = 2
   const [hydrated, setHydrated] = useState(false);
   const { chain, chains } = useNetwork()
+  const [tokenInput, setToken] = useState(' ');
+  const [chainInput, setChain] = useState(' ');
+  const [imageInput, setImage] = useState('');
 
   const allModulesCall: Props = useContractRead({
     address: contracts['controller']['address'][chain?.name as keyof typeof contracts['controller']['address']] as `0x${string}`,
@@ -352,7 +365,7 @@ export function Liquidity() {
                   </thead>
                   <tbody>
                     {tokens.map((token) => (
-                      <Row key={token.name} token={token} />
+                      <Row key={token.name} token={token} setToken={setToken} setChain={setChain} setImage={setImage} />
                     ))}
                   </tbody>
                 </table>
@@ -361,6 +374,8 @@ export function Liquidity() {
           </div>
         </div>
       </div>
+      <AddLiquidityModal tokenInput={tokenInput} chainInput={chainInput} imageInput={imageInput} />
+      <RemoveLiquidityModal chainInput={chainInput} />
     </>
   )
 }
