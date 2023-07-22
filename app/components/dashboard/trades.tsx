@@ -22,7 +22,7 @@ const trades = [
     status: 'Profit',
     tokens: ['dai', 'eth'],
     chains: ['arbitrum', 'polygon'],
-    channel: 'chainlink',
+    messenger: 'chainlink',
     arbitraguer: '0x741cB6A6a8dC16363666462769D8dEc996311466',
     date: '2023-03-22',
   }
@@ -160,7 +160,7 @@ export function Trades() {
                     <th>Tokens</th>
                     <th>Gross</th>
                     <th>Arbitrageur</th>
-                    <th>Channel</th>
+                    <th>Messenger</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -234,13 +234,13 @@ export function Trades() {
                           </div>
                         </Link>
                       </td>
-                      {/* Channel */}
+                      {/* Messenger */}
                       <td className="py-5 pr-6 sm:table-cell">
                         <div className="flex">
                           <div className="avatar mask mask-squircle w-6 h-6 rounded-full">
-                            <Image width={600} height={600} src={"https://icons.llamao.fi/icons/protocols/" + trade.channel + '.jpg'} alt={"Icon of " + trade.channel} />
+                            <Image width={600} height={600} src={"https://icons.llamao.fi/icons/protocols/" + trade.messenger + '.jpg'} alt={"Icon of " + trade.messenger} />
                           </div>
-                          <span className="text-gray-900">{trade.channel[0].toUpperCase() + trade.channel.slice(1)}</span>
+                          <span className="text-gray-900">{trade.messenger[0].toUpperCase() + trade.messenger.slice(1)}</span>
                         </div>
                         <div className="mt-1 text-xs leading-5 text-gray-500">
                           <a
