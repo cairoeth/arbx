@@ -99,15 +99,15 @@ contract HyperlaneMessenger is Router {
                                SEND LOGIC
     //////////////////////////////////////////////////////////////*/
 
-    /// @notice Sends a message to the _destinationDomain. Any msg.value is
-    /// used as interchain gas payment.
-    /// @param _destinationDomain The destination domain to send the message to.
-    /// @param _message The message to send.
-    function sendHelloWorld(uint32 _destinationDomain, string calldata _message) external payable {
+    /// @notice Sends a transaction payload to another Beacon on the destination chain.
+    /// @dev Pays for fees in native gas, so assumes contract holds sufficient native gas.
+    /// @param destinationChain The identifier of the destination chain.
+    /// @param payload The payload to be sent.
+    function sendPayloadPayNative(uint32 destinationChain, string calldata payload) external payable {
         sent += 1;
-        sentTo[_destinationDomain] += 1;
-        _dispatchWithGas(_destinationDomain, bytes(_message), HANDLE_GAS_AMOUNT, msg.value, msg.sender);
-        emit SentHelloWorld(mailbox.localDomain(), _destinationDomain, _message);
+        sentTo[destinationChain] += 1;
+        _dispatchWithGas(destinationChain, bytes(payload), HANDLE_GAS_AMOUNT, msg.value, msg.sender);
+        emit SentHelloWorld(mailbox.localDomain(), destinationChain, payload);
     }
 
     /*//////////////////////////////////////////////////////////////

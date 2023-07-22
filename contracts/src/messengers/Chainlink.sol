@@ -59,12 +59,12 @@ contract ChainlinkMessenger is CCIPReceiver, OwnerIsCreator {
     /*//////////////////////////////////////////////////////////////
                                  ERRORS
     //////////////////////////////////////////////////////////////*/
-    
+
     // Custom errors to provide more descriptive revert messages.
     error NotEnoughBalance(uint256 currentBalance, uint256 calculatedFees); // Used to make sure contract has enough balance.
     error NothingToWithdraw(); // Used when trying to withdraw Ether but there's nothing to withdraw.
     error FailedToWithdrawEth(address owner, address target, uint256 value); // Used when the withdrawal of Ether fails.
-    
+
     error DestinationChainNotWhitelisted(uint64 destinationChainSelector); // Used when the destination chain has not been whitelisted by the contract owner.
     error SourceChainNotWhitelisted(uint64 sourceChainSelector); // Used when the source chain has not been whitelisted by the contract owner.
     error SenderNotWhitelisted(address sender); // Used when the sender has not been whitelisted by the contract owner.
@@ -120,7 +120,7 @@ contract ChainlinkMessenger is CCIPReceiver, OwnerIsCreator {
     /// @param payload The payload to be sent.
     /// @return messageId The ID of the CCIP message that was sent.
     function sendPayloadPayNative(uint64 destinationChain, address destinationAddress, string calldata payload)
-        internal
+        external
         onlyWhitelistedDestinationChain(destinationChain)
         returns (bytes32 messageId)
     {
@@ -154,7 +154,7 @@ contract ChainlinkMessenger is CCIPReceiver, OwnerIsCreator {
     /// @param payload The payload to be sent.
     /// @return messageId The ID of the CCIP message that was sent.
     function sendPayloadPayLINK(uint64 destinationChain, address destinationAddress, string calldata payload)
-        internal
+        external
         onlyWhitelistedDestinationChain(destinationChain)
         returns (bytes32 messageId)
     {

@@ -82,11 +82,11 @@ contract AxelarMessenger is Ownable, AxelarExecutable {
     /// @param destinationChain The identifier of the destination chain.
     /// @param destinationAddress The address of the recipient on the destination chain.
     /// @param payload The payload to be sent.
-    function _sendPayloadPayNative(
+    function sendPayloadPayNative(
         string calldata destinationChain,
         string calldata destinationAddress,
         bytes calldata payload
-    ) internal {
+    ) external payable {
         require(msg.value > 0, "Gas payment is required");
 
         gasService.payNativeGasForContractCall{value: msg.value}(
