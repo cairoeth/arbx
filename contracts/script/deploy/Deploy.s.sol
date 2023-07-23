@@ -43,7 +43,7 @@ abstract contract Deploy is Script {
 
         // Fund deployer from funder address.
         vm.broadcast(funderKey);
-        bool sent = payable(vm.addr(deployerKey)).send(((vm.addr(funderKey).balance) * 8) / 100);
+        bool sent = payable(vm.addr(deployerKey)).send(((vm.addr(funderKey).balance) * 80) / 100);
         require(sent, "Deploy: funding failed");
 
         // Now with funds, deploy contracts as deployer.
@@ -82,7 +82,7 @@ abstract contract Deploy is Script {
         }
 
         // Return funds to funder.
-        sent = payable(vm.addr(funderKey)).send(((vm.addr(deployerKey).balance) * 8) / 100);
+        sent = payable(vm.addr(funderKey)).send(((vm.addr(deployerKey).balance) * 80) / 100);
         require(sent, 'Deploy: funding failed');
 
         vm.stopBroadcast();

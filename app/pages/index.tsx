@@ -51,7 +51,7 @@ export default function App() {
             <div className="text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">ArbX</h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                {`Optimizing price rates across more than 100 decentralized exchanges in 20 chains.`}</p>
+                {`Optimizing price rates across more than 40 decentralized exchanges in 7 chains.`}</p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <ConnectKitButton />
               </div>

@@ -11,7 +11,7 @@
   • <a href="#deployments">Deployments</a> •
 </p>
 
-![screenshot]()
+![screenshot](https://storage.googleapis.com/ethglobal-api-production/projects%2Fd03n7%2Fimages%2FScreenshot%202023-07-23%20at%208.33.03%20AM.png)
 
 ## Deployments
 <table>
@@ -23,8 +23,344 @@
 <th>Hyperlane Messenger</th>
 </tr>
 
-</table>
 
+<tr>
+<td>Celo Alfajores (Testnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Celo (Mainnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Gnosis Chain (Mainnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Linea (Testnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Mantle (Testnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Arbitrum (Mainnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Arbitrum (Testnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Optimism (Mainnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Ethereum Goerli (Testnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Polygon Mumbai (Testnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Avalanche Fuji (Testnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+<tr>
+<td>Avalanche (Mainnet)</td>
+
+<td>
+
+0xc502D2AdFff8F0cB5ED007850650496405245cB9
+
+</td>
+
+<td>
+
+0xcFF5B4aaAA1fD8e8Fc2d6cCbc3EAD4E74d28e835
+
+</td>
+
+<td>
+
+0xbA85c7dc87AAdb51F0FC1761FaE8d0C310E2370a
+
+</td>
+
+<td>
+
+0xbF3FC45A742A1545544A80230298114FB5FB7B57
+
+</td>
+</tr>
+
+</table>
 
 ### Deploy Contracts
 
@@ -56,7 +392,7 @@
   <summary>Linea (Testnet)</summary>
 
   ```sh
-  forge script script/deploy/linea/DeployLineaTestnet.s.sol:DeployLineaTestnet -vvvv --fork-url https://rpc.goerli.linea.build --broadcast --slow
+  forge script script/deploy/linea/DeployLineaTestnet.s.sol:DeployLineaTestnet -vvvv --fork-url https://rpc.goerli.linea.build --broadcast --slow --legacy
   ```
 </details>
 
@@ -96,7 +432,7 @@
   <summary>Ethereum Goerli (Testnet)</summary>
 
   ```sh
-  forge script script/deploy/ethereum/DeployGoerliTestnet.s.sol:DeployGoerliTestnet -vvvv --fork-url https://rpc.ankr.com/eth_goerli --slow
+  forge script script/deploy/ethereum/DeployGoerliTestnet.s.sol:DeployGoerliTestnet -vvvv --fork-url https://rpc.ankr.com/eth_goerli --broadcast --slow
   ```
 </details>
 
@@ -120,7 +456,7 @@
   <summary>Avalanche (Mainnet)</summary>
 
   ```sh
-  forge script script/deploy/avalanche/DeployAvalancheMainnet.s.sol:DeployAvalancheMainnet -vvvv --fork-url https://rpc.ankr.com/avalanche --slow
+  forge script script/deploy/avalanche/DeployAvalancheMainnet.s.sol:DeployAvalancheMainnet -vvvv --fork-url https://rpc.ankr.com/avalanche --broadcast --slow
   ```
 </details>
 
@@ -128,6 +464,6 @@
   <summary>Avalanche (Testnet)</summary>
 
   ```sh
-  forge script script/deploy/avalanche/DeployAvalancheTestnet.s.sol:DeployAvalancheTestnet -vvvv --fork-url https://rpc.ankr.com/avalanche_fuji --slow
+  forge script script/deploy/avalanche/DeployAvalancheTestnet.s.sol:DeployAvalancheTestnet -vvvv --fork-url https://rpc.ankr.com/avalanche_fuji --broadcast --slow
   ```
 </details>
