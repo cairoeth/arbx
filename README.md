@@ -28,87 +28,106 @@
 
 ### Deploy Contracts
 
-In order to deploy the contracts, set the relevant constants in the respective chain script, and run the following command(s):
-
-```sh
-forge script script/deploy/<GROUP>/<CHAIN>.s.sol:<CHAIN> -vvvv --fork-url <RPC> --broadcast --slow
-```
-
 <details>
-<summary>Celo Alfajores (Testnet)</summary>
+  <summary>Celo Alfajores (Testnet)</summary>
+
   ```sh
-  forge script script/deploy/<GROUP>/<CHAIN>.s.sol:<CHAIN> -vvvv --fork-url <RPC> --broadcast --slow
+  forge script script/deploy/celo/DeployCeloTestnet.s.sol:DeployCeloTestnet -vvvv --fork-url https://alfajores-forno.celo-testnet.org --broadcast --slow
   ```
 </details>
 
 <details>
   <summary>Celo (Mainnet)</summary>
-    ```js
-  function logSomething(something) {
-    console.log('Something', something);
-  }
+
+  ```sh
+  forge script script/deploy/celo/DeployCeloMainnet.s.sol:DeployCeloMainnet -vvvv --fork-url https://rpc.ankr.com/celo --broadcast --slow
   ```
 </details>
 
 <details>
   <summary>Gnosis Chain (Mainnet)</summary>
+
   ```sh
-  forge script script/deploy/xdai/DeployXDai.s.sol:DeployXDai -vvvv --fork-url https://rpc.xdaichain.com --broadcast --slow
+  forge script script/deploy/gnosis/DeployGnosisMainnet.s.sol:DeployGnosisMainnet -vvvv --fork-url https://rpc.gnosischain.com --broadcast --slow
+  ```
+</details>
+
+<details>
+  <summary>Linea (Testnet)</summary>
+
+  ```sh
+  forge script script/deploy/linea/DeployLineaTestnet.s.sol:DeployLineaTestnet -vvvv --fork-url https://rpc.goerli.linea.build --broadcast --slow
+  ```
+</details>
+
+<details>
+  <summary>Mantle (Testnet)</summary>
+
+  ```sh
+  forge script script/deploy/mantle/DeployMantleTestnet.s.sol:DeployMantleTestnet -vvvv --fork-url https://rpc.testnet.mantle.xyz --broadcast --legacy --slow
   ```
 </details>
 
 <details>
   <summary>Arbitrum (Mainnet)</summary>
+
   ```sh
-  forge script script/deploy/arbitrum/DeployArbitrum.s.sol:DeployArbitrum -vvvv --fork-url https://arb1.arbitrum.io/rpc --broadcast --slow
+  forge script script/deploy/arbitrum/DeployArbitrumMainnet.s.sol:DeployArbitrumMainnet -vvvv --fork-url https://arb1.croswap.com/rpc --broadcast --slow
   ```
 </details>
 
 <details>
   <summary>Arbitrum (Testnet)</summary>
+
   ```sh
-  forge script script/deploy/arbitrum/DeployArbitrumTestnet.s.sol:DeployArbitrumTestnet -vvvv --fork-url https://rinkeby.arbitrum.io/rpc --broadcast --slow
+  forge script script/deploy/arbitrum/DeployArbitrumTestnet.s.sol:DeployArbitrumTestnet -vvvv --fork-url https://rpc.goerli.arbitrum.gateway.fm --broadcast --slow
   ```
 </details>
 
 <details>
   <summary>Optimism (Mainnet)</summary>
-  ```sh
-  forge script script/deploy/optimism/DeployOptimism.s.sol:DeployOptimism -vvvv --fork-url https://mainnet.optimism.io --broadcast --slow
-  ```
-</details>
 
-<details>
-  <summary>Optimism (Tesnet)</summary>
   ```sh
-  forge script script/deploy/optimism/DeployOptimismTestnet.s.sol:DeployOptimismTestnet -vvvv --fork-url https://kovan.optimism.io --broadcast --slow
+  forge script script/deploy/optimism/DeployOptimismMainnet.s.sol:DeployOptimismMainnet -vvvv --fork-url https://rpc.ankr.com/optimism --broadcast --slow
   ```
 </details>
 
 <details>
   <summary>Ethereum Goerli (Testnet)</summary>
-  ```sh
-  forge script script/deploy/ethereum/DeployEthereumTestnet.s.sol:DeployEthereumTestnet -vvvv --fork-url https://goerli.infura.io/v3/6b2d6b3c8c5a4a8e8f6b3c8c5a8e8f6b --broadcast --slow
-  ```
-</details>
 
-<details>
-  <summary>Ethereum Sepolia (Testnet)</summary>
   ```sh
-  forge script script/deploy/ethereum/DeployEthereumTestnet.s.sol:DeployEthereumTestnet -vvvv --fork-url https://ropsten.infura.io/v3/6b2d6b3c8c5a4a8e8f6b3c8c5a8e8f6b --broadcast --slow
+  forge script script/deploy/ethereum/DeployGoerliTestnet.s.sol:DeployGoerliTestnet -vvvv --fork-url https://rpc.ankr.com/eth_goerli --slow
   ```
 </details>
 
 <details>
   <summary>Polygon (Testnet)</summary>
+
   ```sh
-  forge script script/deploy/polygon/DeployPolygonTestnet.s.sol:DeployPolygonTestnet -vvvv --fork-url https://rpc-mumbai.maticvigil.com --broadcast --slow
+  forge script script/deploy/polygon/DeployPolygonTestnet.s.sol:DeployPolygonTestnet -vvvv --fork-url https://rpc.ankr.com/polygon_mumbai --broadcast --slow
   ```
 </details>
 
 <details>
   <summary>Polygon (Mainnet)</summary>
+  
   ```sh
-  forge script script/deploy/polygon/DeployPolygonMainnet.s.sol:DeployPolygonMainnet -vvvv --fork-url https://rpc-mainnet.maticvigil.com --broadcast --slow
+  forge script script/deploy/polygon/DeployPolygonMainnet.s.sol:DeployPolygonMainnet -vvvv --fork-url https://poly-rpc.gateway.pokt.network --broadcast --slow
+  ```
+</details>
+
+<details>
+  <summary>Avalanche (Mainnet)</summary>
+
+  ```sh
+  forge script script/deploy/avalanche/DeployAvalancheMainnet.s.sol:DeployAvalancheMainnet -vvvv --fork-url https://rpc.ankr.com/avalanche --slow
+  ```
+</details>
+
+<details>
+  <summary>Avalanche (Testnet)</summary>
+
+  ```sh
+  forge script script/deploy/avalanche/DeployAvalancheTestnet.s.sol:DeployAvalancheTestnet -vvvv --fork-url https://rpc.ankr.com/avalanche_fuji --slow
   ```
 </details>

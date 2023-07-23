@@ -8,29 +8,35 @@ contract DeployGnosisMainnet is Deploy {
     constructor() Deploy() {}
 
     function run() external {
-        address[] memory dexes = new address[](1);
+        address[] memory dexes = new address[](2);
         // HoneySwap (Uniswap v2) Router
         dexes[0] = 0x1C232F01118CB8B424793ae03F870aa7D0ac7f77;
         // Swapr (Uniswap v2) Router
         dexes[1] = 0xE43e60736b1cb4a75ad25240E2f9a62Bff65c0C0;
 
-        address[] memory tokens = new address[](16);
-        tokens[0] = 0x6B175474E89094C44Da98b954EedeAC495271d0F; // DAI
-        tokens[1] = 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599; // WBTC
-        tokens[2] = 0x514910771AF9Ca656af840dff83E8264EcF986CA; // LINK
-        tokens[3] = 0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e; // YFI
-        tokens[4] = 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984; // UNI
-        tokens[5] = 0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9; // AAVE
-        tokens[6] = 0x0D8775F648430679A709E98d2b0Cb6250d2887EF; // BAT
-        tokens[7] = 0x6B3595068778DD592e39A122f4f5a5cF09C90fE2; // SUSHI
-        tokens[8] = 0x1cEB5cB57C4D4E2b2433641b95Dd330A33185A44; // KP3R
-        tokens[9] = 0x0F5D2fB29fb7d3CFeE444a200298f468908cC942; // MANA
-        tokens[10] = 0x0F83287FF768D1c1e17a42F44d644D7F22e8ee1d; // REN
-        tokens[11] = 0x408e41876cCCDC0F92210600ef50372656052a38; // RENBTC
-        tokens[12] = 0x0D8775F648430679A709E98d2b0Cb6250d2887EF; // BAT
-        tokens[13] = 0x0F5D2fB29fb7d3CFeE444a200298f468908cC942; // MANA
-        tokens[14] = 0x408e41876cCCDC0F92210600ef50372656052a38; // RENBTC
-        tokens[15] = 0x0D8775F648430679A709E98d2b0Cb6250d2887EF; // BAT
+        address[] memory tokens = new address[](11);
+        // WETH
+        tokens[0] = 0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1;
+        // WXDAI
+        tokens[1] = 0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d;
+        // UNI
+        tokens[2] = 0x4537e328Bf7e4eFA29D05CAeA260D7fE26af9D74;
+        // HNY
+        tokens[3] = 0x71850b7E9Ee3f13Ab46d67167341E4bDc905Eef9;
+        // AAVE
+        tokens[4] = 0xDF613aF6B44a31299E48131e9347F034347E2F00;
+        // DAI
+        tokens[5] = 0x44fA8E6f47987339850636F88629646662444217;
+        // USDC
+        tokens[6] = 0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83;
+        // DONUT
+        tokens[7] = 0x524B969793a64a602342d89BC2789D43a016B13A;
+        // GNO
+        tokens[8] = 0x9C58BAcC331c9aa871AFD802DB6379a98e80CEdb;
+        // BAL
+        tokens[9] = 0x7eF541E2a22058048904fE5744f9c7E4C57AF717;
+        // WBTC
+        tokens[10] = 0x8e5bBbb09Ed1ebdE8674Cda39A0c169401db4252;
 
         setup(
             tokens,
