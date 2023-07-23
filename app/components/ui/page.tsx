@@ -1,37 +1,110 @@
 import { WagmiConfig, configureChains, createClient } from "wagmi";
-import { goerli, gnosis, optimism, scrollTestnet } from "wagmi/chains";
+import { goerli, celoAlfajores, celo, gnosis, arbitrum, arbitrumGoerli, optimism, polygon, polygonMumbai, avalanche, avalancheFuji } from '@wagmi/chains'
 import { ConnectKitProvider } from "connectkit";
-import { infuraProvider } from 'wagmi/providers/infura'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { Chain } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
+import { InjectedConnector } from 'wagmi/connectors/injected'
 
-export const polygonZkEvmTestnet = {
-  id: 1442,
-  name: 'Polygon zkEVM Testnet',
-  network: 'Polygon zkEVM Testnet',
+export const linea = {
+  id: 59140,
+  name: 'Linea Testnet',
+  network: 'Linea Testnet',
   nativeCurrency: {
     decimals: 18,
     name: 'Ethereum',
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: ['https://rpc.public.zkevm-test.net'] },
-    default: { http: ['https://rpc.public.zkevm-test.net'] },
+    public: { http: ['https://rpc.goerli.linea.build'] },
+    default: { http: ['https://linea-goerli.infura.io/v3/' + process.env.INFURA as string] },
   },
 } as const satisfies Chain
 
+export const mantle = {
+  id: 5001,
+  name: 'Mantle Testnet',
+  network: 'Mantle Testnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Mantle',
+    symbol: 'MNT',
+  },
+  rpcUrls: {
+    public: { http: ['https://rpc.testnet.mantle.xyz'] },
+    default: { http: ['https://rpc.testnet.mantle.xyz'] },
+  },
+} as const satisfies Chain
+
+console.log(process.env.NEXT_PUBLIC_WALLETCONNECT)
+
 const { chains, provider, webSocketProvider } = configureChains(
-  [goerli, gnosis, optimism, scrollTestnet, polygonZkEvmTestnet],
+  [goerli, celoAlfajores, celo, gnosis, linea, mantle, arbitrum, arbitrumGoerli, optimism, polygon, polygonMumbai, avalanche, avalancheFuji],
   [
-    infuraProvider({ apiKey: process.env.INFURA as string, stallTimeout: 1_000 }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://few-soft-bird.ethereum-goerli.discover.quiknode.pro/${process.env.NEXT_PUBLIC_QUICKNODE as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://celo-alfajores.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://celo-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: 'https://rpc.ankr.com/gnosis',
+      }),
+    }),
     publicProvider(),
-    publicProvider(),
-    publicProvider(),
-    publicProvider()
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://arbitrum-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://arbitrum-goerli.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://optimism-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://optimism-goerli.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://polygon-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://polygon-mumbai.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://avalanche-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    }),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://avalanche-fuji.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA as string}`,
+      }),
+    })
   ],
 );
 
@@ -54,10 +127,12 @@ const client = createClient({
     new WalletConnectConnector({
       chains,
       options: {
-        projectId: '5245c2597c09eaa73a4e6fa3209e623e',
-        showQrModal: true,
+        projectId: process.env.NEXT_PUBLIC_WALLETCONNECT as string,
       },
     }),
+    new InjectedConnector({
+      chains,
+    })
   ],
   autoConnect: true,
   provider,

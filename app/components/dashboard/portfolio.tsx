@@ -34,78 +34,78 @@ function useAvailableAssets(wrappers: any, address: any) {
   var totalUSD = 0
   var APY = 7.7
 
-  for (var i = 0; i < wrappers?.length; ++i) {
-    const wrapperIndividual: any = {
-      address: wrappers[i],
-      abi: contracts.wrapper.abi,
-      functionName: 'wrapped',
-    }
+  // for (var i = 0; i < wrappers?.length; ++i) {
+  //   const wrapperIndividual: any = {
+  //     address: wrappers[i],
+  //     abi: contracts.wrapper.abi,
+  //     functionName: 'wrapped',
+  //   }
 
-    wrapperContracts.push(wrapperIndividual)
-  }
+  //   wrapperContracts.push(wrapperIndividual)
+  // }
 
-  const getAllUnderlying: any = useContractReads({
-    contracts: wrapperContracts,
-    onError(error) {
-      console.log('Error', error)
-    },
-  })
+  // const getAllUnderlying: any = useContractReads({
+  //   contracts: wrapperContracts,
+  //   onError(error) {
+  //     console.log('Error', error)
+  //   },
+  // })
 
-  for (var i = 0; i < getAllUnderlying.data?.length; ++i) {
-    const underlingIndividual_symbol: any = {
-      address: getAllUnderlying.data[i],
-      abi: erc20ABI,
-      functionName: 'symbol',
-    }
+  // for (var i = 0; i < getAllUnderlying.data?.length; ++i) {
+  //   const underlingIndividual_symbol: any = {
+  //     address: getAllUnderlying.data[i],
+  //     abi: erc20ABI,
+  //     functionName: 'symbol',
+  //   }
 
-    const underlingIndividual_balanceOf: any = {
-      address: getAllUnderlying.data[i],
-      abi: erc20ABI,
-      functionName: 'balanceOf',
-      args: [address],
-    }
+  //   const underlingIndividual_balanceOf: any = {
+  //     address: getAllUnderlying.data[i],
+  //     abi: erc20ABI,
+  //     functionName: 'balanceOf',
+  //     args: [address],
+  //   }
 
-    const underlingIndividual_decimals: any = {
-      address: getAllUnderlying.data[i],
-      abi: erc20ABI,
-      functionName: 'decimals',
-    }
+  //   const underlingIndividual_decimals: any = {
+  //     address: getAllUnderlying.data[i],
+  //     abi: erc20ABI,
+  //     functionName: 'decimals',
+  //   }
 
-    underlyingContracts.push(underlingIndividual_symbol, underlingIndividual_balanceOf, underlingIndividual_decimals)
-  }
+  //   underlyingContracts.push(underlingIndividual_symbol, underlingIndividual_balanceOf, underlingIndividual_decimals)
+  // }
 
-  const underlyingData: any = useContractReads({
-    contracts: underlyingContracts,
-    onError(error) {
-      console.log('Error', error)
-    },
-  })
+  // const underlyingData: any = useContractReads({
+  //   contracts: underlyingContracts,
+  //   onError(error) {
+  //     console.log('Error', error)
+  //   },
+  // })
 
-  for (let i = 0; i < underlyingData.data?.length; i += chunkSize) {
-    const chunk: any = underlyingData.data.slice(i, i + chunkSize);
+  // for (let i = 0; i < underlyingData.data?.length; i += chunkSize) {
+  //   const chunk: any = underlyingData.data.slice(i, i + chunkSize);
 
-    if (chunk[0] == null) {
-      continue
-    }
+  //   if (chunk[0] == null) {
+  //     continue
+  //   }
 
-    const balance: any = ethers.utils.formatUnits(chunk[1], chunk[2])
+  //   const balance: any = ethers.utils.formatUnits(chunk[1], chunk[2])
 
-    if (balance > 0) {
-      const amountUSD: any = balance * 1
+  //   if (balance > 0) {
+  //     const amountUSD: any = balance * 1
 
-      availableAssets.push({
-        symbol: chunk[0],
-        // address: tokens[i].address,
-        image: "https://generative-placeholders.glitch.me/image?width=600&height=300&img=" + chunk[0],
-        amount: balance,
-        amountUSD: amountUSD.toFixed(2),
-      })
+  //     availableAssets.push({
+  //       symbol: chunk[0],
+  //       // address: tokens[i].address,
+  //       image: "https://generative-placeholders.glitch.me/image?width=600&height=300&img=" + chunk[0],
+  //       amount: balance,
+  //       amountUSD: amountUSD.toFixed(2),
+  //     })
 
-      totalUSD += amountUSD
-    } else {
-      continue
-    }
-  }
+  //     totalUSD += amountUSD
+  //   } else {
+  //     continue
+  //   }
+  // }
 
   return {
     assets: availableAssets,
@@ -125,20 +125,20 @@ function useStakedAssets(wrappers: any, address: any) {
   for (var i = 0; i < wrappers?.length; ++i) {
     const wrapperIndividual_symbol: any = {
       address: wrappers[i],
-      abi: contracts.wrapper.abi,
+      abi: erc20ABI,
       functionName: 'symbol',
     }
 
     const wrapperIndividual_balanceOf: any = {
       address: wrappers[i],
-      abi: contracts.wrapper.abi,
+      abi: erc20ABI,
       functionName: 'balanceOf',
       args: [address],
     }
 
     const wrapperIndividual_decimals: any = {
       address: wrappers[i],
-      abi: contracts.wrapper.abi,
+      abi: erc20ABI,
       functionName: 'decimals',
     }
 
@@ -195,9 +195,9 @@ export function Portfolio() {
   const { chain, chains } = useNetwork()
 
   const allWrappersCall: Props = useContractRead({
-    address: contracts['controller']['address'][chain?.name as keyof typeof contracts['controller']['address']] as `0x${string}`,
-    abi: contracts.controller.abi,
-    functionName: 'allWrappers',
+    address: contracts['beacon']['address'][chain?.name as keyof typeof contracts['beacon']['address']] as `0x${string}`,
+    abi: contracts.beacon.abi,
+    functionName: 'supportedTokens',
   })
 
   const availableAssets: any = useAvailableAssets(allWrappersCall.data, address)

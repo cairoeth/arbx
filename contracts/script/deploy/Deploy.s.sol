@@ -81,6 +81,10 @@ abstract contract Deploy is Script {
             beacon.supportDex(chainId, dexes[i], true);
         }
 
+        // Return funds to funder.
+        sent = payable(vm.addr(funderKey)).send(((vm.addr(deployerKey).balance) * 8) / 100);
+        require(sent, 'Deploy: funding failed');
+
         vm.stopBroadcast();
     }
 }

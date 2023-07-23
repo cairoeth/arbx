@@ -1304,6 +1304,11 @@
   resolved "https://registry.yarnpkg.com/@wagmi/chains/-/chains-0.2.14.tgz#fff331e1f160848ba730b319b39023df8c1e52ee"
   integrity sha512-esWhs1sf8/J/u+54F/sUQ97iZ/zUN2rYUrLYOD35ynIJn9ZwGXeV/tkiXx/6xXDmq0VK5oe1Pe7BU/pvaURzcA==
 
+"@wagmi/chains@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@wagmi/chains/-/chains-1.6.0.tgz#eb992ad28dbaaab729b5bcab3e5b461e8a035656"
+  integrity sha512-5FRlVxse5P4ZaHG3GTvxwVANSmYJas1eQrTBHhjxVtqXoorm0aLmCHbhmN8Xo1yu09PaWKlleEvfE98yH4AgIw==
+
 "@wagmi/connectors@0.3.8":
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-0.3.8.tgz#cc5b5815540eed0b6aed31d5c59c3c87b21d0871"

@@ -25,13 +25,21 @@ export function hexToRgbA(hex: string) {
 }
 
 export const contracts = {
-  controller: {
+  beacon: {
     address: {
       Goerli: '0xa0C21F3f1359f45890f918CFd340361CcD91627B',
-      Optimism: '0x94E9b8A9bf9C7d8e8A3AF85A387b1CbFf2a47884',
+      CeloAlfajores: '0xa0C21F3f1359f45890f918CFd340361CcD91627B',
+      Celo: '0xa0C21F3f1359f45890f918CFd340361CcD91627B',
       Gnosis: '0x94E9b8A9bf9C7d8e8A3AF85A387b1CbFf2a47884',
-      'Scroll Testnet': '0x94E9b8A9bf9C7d8e8A3AF85A387b1CbFf2a47884',
-      'Polygon zkEVM Testnet': '0xb76633e091B70b41Fbc7c1D865Fa20bC41B242A3'
+      Arbitrum: '0x94E9b8A9bf9C7d8e8A3AF85A387b1CbFf2a47884',
+      ArbitrumGoerli: '0x94E9b8A9bf9C7d8e8A3AF85A387b1CbFf2a47884',
+      Optimism: '0x94E9b8A9bf9C7d8e8A3AF85A387b1CbFf2a47884',
+      Polygon: '0xb76633e091B70b41Fbc7c1D865Fa20bC41B242A3',
+      PolygonMumbai: '0xb76633e091B70b41Fbc7c1D865Fa20bC41B242A3',
+      Avalanche: '0xb76633e091B70b41Fbc7c1D865Fa20bC41B242A3',
+      AvalancheFuji: '0xb76633e091B70b41Fbc7c1D865Fa20bC41B242A3',
+      'Linea Testnet': '0xb76633e091B70b41Fbc7c1D865Fa20bC41B242A3',
+      'Mantle Testnet': '0xb76633e091B70b41Fbc7c1D865Fa20bC41B242A3'
     },
     abi: [
       {
@@ -68,116 +76,6 @@ export const contracts = {
         inputs: [{ indexed: true, internalType: "address", name: "module", type: "address" }],
         name: "ModuleAdded",
         type: "event"
-      },
-    ]
-  },
-  wrapper: {
-    abi: [
-      {
-        inputs: [],
-        name: "name",
-        outputs: [{ internalType: "string", name: "", type: "string" }],
-        stateMutability: "view",
-        type: "function"
-      },
-      {
-        inputs: [],
-        name: "symbol",
-        outputs: [{ internalType: "string", name: "", type: "string" }],
-        stateMutability: "view",
-        type: "function"
-      },
-      {
-        inputs: [],
-        name: "wrapped",
-        outputs: [{ internalType: "address", name: "", type: "address" }],
-        stateMutability: "view",
-        type: "function"
-      },
-      {
-        inputs: [],
-        name: "totalSupply",
-        outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-        stateMutability: "view",
-        type: "function"
-      },
-      {
-        inputs: [{ internalType: "address", name: "", type: "address" }],
-        name: "balanceOf",
-        outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-        stateMutability: "view",
-        type: "function"
-      },
-      {
-        name: 'decimals',
-        type: 'function',
-        stateMutability: 'view',
-        inputs: [],
-        outputs: [{ internalType: "uint256", name: "", type: "uint256" }
-        ],
-      },
-      {
-        inputs: [{ internalType: "address", name: "module", type: "address" }, { internalType: "uint256", name: "amount", type: "uint256" }],
-        name: "depositAndRestake",
-        outputs: [{ internalType: "bool", name: "", type: "bool" }],
-        stateMutability: "nonpayable",
-        type: "function"
-      },
-      {
-        inputs: [{ internalType: "address", name: "module", type: "address" }, { internalType: "uint256", name: "amount", type: "uint256" }],
-        name: "unrestakeAndWithdraw",
-        outputs: [{ internalType: "bool", name: "", type: "bool" }],
-        stateMutability: "nonpayable",
-        type: "function"
-      },
-      {
-        inputs: [
-          {
-            internalType: "address",
-            name: "",
-            type: "address"
-          },
-          {
-            internalType: "address",
-            nam: "",
-            type: "address"
-          }
-        ],
-        name: "restakedAmount",
-        outputs: [
-          {
-            internalType: "uint256",
-            name: "",
-            type: "uint256"
-          }
-        ],
-        stateMutability: "view",
-        type: "function"
-      }
-    ]
-  },
-  module: {
-    abi: [
-      {
-        inputs: [],
-        name: "name",
-        outputs: [{ internalType: "string", name: "", type: "string" }],
-        stateMutability: "view",
-        type: "function"
-      },
-      {
-        inputs: [],
-        name: "image",
-        outputs: [{ internalType: "string", name: "", type: "string" }],
-        stateMutability: "view",
-        type: "function"
-      },
-      {
-        inputs: [],
-        name: "getWrappers",
-        outputs: [{ internalType: "address[]", name: "", type: "address[]" }],
-        stateMutability: "view",
-        type: "function"
       },
     ]
   }

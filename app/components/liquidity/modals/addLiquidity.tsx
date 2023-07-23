@@ -21,9 +21,9 @@ export function AddLiquidityModal({ tokenInput, chainInput, imageInput }: { toke
     error: prepareError,
     isError: isPrepareError,
   } = usePrepareContractWrite({
-    address: contracts['controller']['address'][chain?.name as keyof typeof contracts['controller']['address']] as `0x${string}`,
-    abi: contracts.controller.abi,
-    functionName: 'addModule',
+    address: contracts['beacon']['address'][chain?.name as keyof typeof contracts['beacon']['address']] as `0x${string}`,
+    abi: contracts.beacon.abi,
+    functionName: 'addLiquidity',
     args: [debouncedInput],
     enabled: Boolean(debouncedInput),
   })

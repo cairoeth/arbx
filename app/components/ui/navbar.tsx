@@ -18,7 +18,6 @@ export function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li><Link href="/">Dashboard</Link></li>
-          <li><Link href="/arbitrage">Arbitrage</Link></li>
           <li><Link href="/liquidity">Liquidity</Link></li>
           <li><Link href="#" target='_blank'>Docs</Link></li>
         </ul>
