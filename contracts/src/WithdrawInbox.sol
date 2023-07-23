@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.20;
 
-import {Ownable} from 'openzeppelin/access/Ownable.sol';
+import {Ownable} from "openzeppelin/access/Ownable.sol";
 
 /// @title WithdrawInbox
 /// @author cairoeth
@@ -65,15 +65,15 @@ contract WithdrawInbox is Ownable {
         uint32[] calldata _ratios,
         uint32[] calldata _slippages
     ) external {
-        require(_fromChains.length > 0, 'empty withdrawal request');
+        require(_fromChains.length > 0, "empty withdrawal request");
         require(
             _tokens.length == _fromChains.length && _ratios.length == _fromChains.length
                 && _slippages.length == _fromChains.length,
-            'length mismatch'
+            "length mismatch"
         );
         for (uint256 i = 0; i < _ratios.length; i++) {
-            require(_ratios[i] > 0 && _ratios[i] <= 1e8, 'invalid ratio');
-            require(_slippages[i] >= minimalMaxSlippage, 'slippage too small');
+            require(_ratios[i] > 0 && _ratios[i] <= 1e8, "invalid ratio");
+            require(_slippages[i] >= minimalMaxSlippage, "slippage too small");
         }
         uint256 _deadline = block.timestamp + validityPeriod;
         emit WithdrawalRequest(

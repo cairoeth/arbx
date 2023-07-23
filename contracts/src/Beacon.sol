@@ -1,16 +1,16 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.20;
 
-import {IERC20} from 'openzeppelin/token/ERC20/IERC20.sol';
-import {SafeERC20} from 'openzeppelin/token/ERC20/utils/SafeERC20.sol';
-import {Strings} from 'openzeppelin/utils/Strings.sol';
-import {PbBridge} from './libraries/PbBridge.sol';
-import {IWETH} from './interfaces/IWETH.sol';
-import {Pool} from './Pool.sol';
+import {IERC20} from "openzeppelin/token/ERC20/IERC20.sol";
+import {SafeERC20} from "openzeppelin/token/ERC20/utils/SafeERC20.sol";
+import {Strings} from "openzeppelin/utils/Strings.sol";
+import {PbBridge} from "./libraries/PbBridge.sol";
+import {IWETH} from "./interfaces/IWETH.sol";
+import {Pool} from "./Pool.sol";
 
-import {AxelarMessenger} from './messengers/Axelar.sol';
-import {ChainlinkMessenger} from './messengers/Chainlink.sol';
-import {HyperlaneMessenger} from './messengers/Hyperlane.sol';
+import {AxelarMessenger} from "./messengers/Axelar.sol";
+import {ChainlinkMessenger} from "./messengers/Chainlink.sol";
+import {HyperlaneMessenger} from "./messengers/Hyperlane.sol";
 
 /// @title Beacon
 /// @author cairoeth
@@ -158,7 +158,7 @@ contract Beacon is Pool {
     /// @param trade A trade to execute.
     function receiveTrade(Trade calldata trade) external nonReentrant whenNotPaused onlyAuthorizedMessenger {
         // Execute the trade with the given DEX and payload.
-        (bool success, ) = trade.dex.call(trade.payload);
+        (bool success,) = trade.dex.call(trade.payload);
         if (!success) revert FailedTrade(trade.dex, trade.payload);
 
         emit ExecutedTrade(trade.dex, trade.payload);

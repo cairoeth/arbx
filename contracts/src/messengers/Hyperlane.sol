@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.13;
 
-import {Router} from 'hyperlane/Router.sol';
+import {Router} from "hyperlane/Router.sol";
 
 /// @title HyperlaneMessenger
 /// @author cairoeth

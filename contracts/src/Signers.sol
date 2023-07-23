@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.20;
 
-import {ECDSA} from 'openzeppelin/utils/cryptography/ECDSA.sol';
-import {Ownable} from 'openzeppelin/access/Ownable.sol';
-import {ISigsVerifier} from './interfaces/ISigsVerifier.sol';
+import {ECDSA} from "openzeppelin/utils/cryptography/ECDSA.sol";
+import {Ownable} from "openzeppelin/access/Ownable.sol";
+import {ISigsVerifier} from "./interfaces/ISigsVerifier.sol";
 
 /// @title Signers
 /// @author cairoeth
@@ -50,10 +50,10 @@ contract Signers is Ownable, ISigsVerifier {
         uint256[] calldata _curPowers
     ) external {
         // use trigger time for nonce protection, must be ascending
-        require(_triggerTime > triggerTime, 'Trigger time is not increasing');
+        require(_triggerTime > triggerTime, "Trigger time is not increasing");
         // make sure triggerTime is not too large, as it cannot be decreased once set
-        require(_triggerTime < block.timestamp + 3600, 'Trigger time is too large');
-        bytes32 domain = keccak256(abi.encodePacked(block.chainid, address(this), 'UpdateSigners'));
+        require(_triggerTime < block.timestamp + 3600, "Trigger time is too large");
+        bytes32 domain = keccak256(abi.encodePacked(block.chainid, address(this), "UpdateSigners"));
         verifySigs(abi.encodePacked(domain, _triggerTime, _newSigners, _newPowers), _sigs, _curSigners, _curPowers);
         _updateSigners(_newSigners, _newPowers);
         triggerTime = _triggerTime;
@@ -72,7 +72,7 @@ contract Signers is Ownable, ISigsVerifier {
         uint256[] calldata _powers
     ) public view override {
         bytes32 h = keccak256(abi.encodePacked(_signers, _powers));
-        require(ssHash == h, 'Mismatch current signers');
+        require(ssHash == h, "Mismatch current signers");
         _verifySignedPowers(keccak256(_msg).toEthSignedMessageHash(), _sigs, _signers, _powers);
     }
 
@@ -87,7 +87,7 @@ contract Signers is Ownable, ISigsVerifier {
         address[] calldata _signers,
         uint256[] calldata _powers
     ) private pure {
-        require(_signers.length == _powers.length, 'signers and powers length not match');
+        require(_signers.length == _powers.length, "signers and powers length not match");
         uint256 totalPower; // sum of all signer.power
         for (uint256 i = 0; i < _signers.length; i++) {
             totalPower += _powers[i];
@@ -99,12 +99,12 @@ contract Signers is Ownable, ISigsVerifier {
         uint256 index = 0;
         for (uint256 i = 0; i < _sigs.length; i++) {
             address signer = _hash.recover(_sigs[i]);
-            require(signer > prev, 'signers not in ascending order');
+            require(signer > prev, "signers not in ascending order");
             prev = signer;
             // now find match signer add its power
             while (signer > _signers[index]) {
                 index += 1;
-                require(index < _signers.length, 'signer not found');
+                require(index < _signers.length, "signer not found");
             }
             if (signer == _signers[index]) {
                 signedPower += _powers[index];
@@ -114,14 +114,14 @@ contract Signers is Ownable, ISigsVerifier {
                 return;
             }
         }
-        revert('quorum not reached');
+        revert("quorum not reached");
     }
 
     function _updateSigners(address[] calldata _signers, uint256[] calldata _powers) private {
-        require(_signers.length == _powers.length, 'signers and powers length not match');
+        require(_signers.length == _powers.length, "signers and powers length not match");
         address prev = address(0);
         for (uint256 i = 0; i < _signers.length; i++) {
-            require(_signers[i] > prev, 'New signers not in ascending order');
+            require(_signers[i] > prev, "New signers not in ascending order");
             prev = _signers[i];
         }
         ssHash = keccak256(abi.encodePacked(_signers, _powers));
@@ -134,7 +134,7 @@ contract Signers is Ownable, ISigsVerifier {
 
     /// @notice reset signers, only used for init setup and emergency recovery
     function resetSigners(address[] calldata _signers, uint256[] calldata _powers) external onlyOwner {
-        require(block.timestamp > resetTime, 'not reach reset time');
+        require(block.timestamp > resetTime, "not reach reset time");
         resetTime = MAX_INT;
         _updateSigners(_signers, _powers);
     }
@@ -145,7 +145,7 @@ contract Signers is Ownable, ISigsVerifier {
     }
 
     function increaseNoticePeriod(uint256 period) external onlyOwner {
-        require(period > noticePeriod, 'notice period can only be increased');
+        require(period > noticePeriod, "notice period can only be increased");
         noticePeriod = period;
     }
 }

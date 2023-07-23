@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.20;
 
-import {AxelarExecutable} from 'axelar/executable/AxelarExecutable.sol';
-import {IAxelarGasService} from 'axelar/interfaces/IAxelarGasService.sol';
-import {Ownable} from 'openzeppelin/access/Ownable.sol';
+import {AxelarExecutable} from "axelar/executable/AxelarExecutable.sol";
+import {IAxelarGasService} from "axelar/interfaces/IAxelarGasService.sol";
+import {Ownable} from "openzeppelin/access/Ownable.sol";
 
 /// @title AxelarMessenger
 /// @author cairoeth
@@ -87,7 +87,7 @@ contract AxelarMessenger is Ownable, AxelarExecutable {
         string calldata destinationAddress,
         bytes calldata payload
     ) external payable {
-        require(msg.value > 0, 'Gas payment is required');
+        require(msg.value > 0, "Gas payment is required");
 
         gasService.payNativeGasForContractCall{value: msg.value}(
             address(this), destinationChain, destinationAddress, payload, msg.sender
